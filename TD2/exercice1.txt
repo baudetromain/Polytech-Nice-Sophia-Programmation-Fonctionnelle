@@ -1,0 +1,11 @@
+    (car '((a b) c (d e) f))               (a b)			OK
+    (car '((1 2 3)))					   (1 2 3)			OK
+    (car '(x y z))                         x				OK
+    (cdr '((a b) c (d e) f))			   (c (d e) f)		OK
+    (cdr '((1 2 3)))                       (2 3)			NOT OK : () (it's a list that contains a single element which is (1 2 3) so the second element does not exist)
+    (cdr '(x y z))						   (y z)			OK
+    (car (cdr '((a b) c (d e) f)))         c				OK
+    (cdr (car '((a b) c (d e) f)))		   (b ())			NOT OK : (b) ou (b . ())
+    (= 'zero 0)                            #f				NOT OK : error
+    (equal? 'zero 0)					   #f				OK
+    (eq? 'zero 0)						   #f				OK
